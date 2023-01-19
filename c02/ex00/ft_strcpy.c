@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 13:46:54 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/18 13:47:01 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/19 20:14:54 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/19 21:08:51 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_is_negative(int n)
+char	*ft_strcpy(char *dest, char *src)
 {
-	if (n < 0)
-		write(1, "N", 1);
-	else
-		write(1, "P", 1);
+	int	i;
+
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = "\0";
+	return (dest);
 }

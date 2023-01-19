@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 13:46:54 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/18 13:47:01 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/19 13:54:23 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/19 14:15:04 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stduni.h>
 
-void	ft_is_negative(int n)
+void	ft_putstr(char *str)
 {
-	if (n < 0)
-		write(1, "N", 1);
-	else
-		write(1, "P", 1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		write(1, &str[i++], 1);
 }

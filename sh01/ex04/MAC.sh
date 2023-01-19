@@ -1,2 +1,1 @@
-#!/bin/sh
-ifconfig -a | grep ether | awk '$1=$1' | cut -c 7-
+ifconfig | grep ether | cut -d ' ' -f 10

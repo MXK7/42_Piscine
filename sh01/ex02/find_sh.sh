@@ -1,1 +1,1 @@
-find . -name "*.sh" -printf "%f\n" | sed "s/.sh$//1"
+find . -type f -name "*.sh" | rev | cut -d "/" -f 1 | cut -d "." -f 2 | rev
