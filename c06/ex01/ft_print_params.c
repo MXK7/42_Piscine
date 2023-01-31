@@ -1,57 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 20:23:49 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/26 21:19:20 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/30 04:25:10 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/30 04:25:11 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *c)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (c[i] != 0)
+	while (str[i] != '\0')
 	{
-		write(1, &c[i], 1);
+		write (1, &str[i], 1);
 		i++;
 	}
-}
+}	
 
-void	ft_putnbr(int nb)
+int	main(int argc, char **argv)
 {
-	int	mod;
-	int	div;
+	int	i;
 
-	if (nb == -2147483648)
+	i = 1;
+	while (i < argc)
 	{
-		ft_putstr("-2147483648");
-		return ;
+		ft_putstr(argv[i]);
+		write (1, "\n", 1);
+		i++;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb > 9)
-	{
-		mod = nb % 10;
-		div = nb / 10;
-		ft_putnbr(div);
-	}
-	if (nb > 9)
-		ft_putchar(mod + '0');
-	else
-		ft_putchar(nb + '0');
+	return (0);
 }

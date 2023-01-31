@@ -1,57 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 20:23:49 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/26 21:19:20 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/30 00:53:42 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/30 00:53:44 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *c)
+int	ft_iterative_power(int nb, int power)
 {
 	int	i;
+	int	s;
 
 	i = 0;
-	while (c[i] != 0)
+	s = 1;
+	if (power < 0)
 	{
-		write(1, &c[i], 1);
-		i++;
+		return (0);
 	}
-}
-
-void	ft_putnbr(int nb)
-{
-	int	mod;
-	int	div;
-
-	if (nb == -2147483648)
+	else if (power == 0)
 	{
-		ft_putstr("-2147483648");
-		return ;
+		return (1);
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb > 9)
-	{
-		mod = nb % 10;
-		div = nb / 10;
-		ft_putnbr(div);
-	}
-	if (nb > 9)
-		ft_putchar(mod + '0');
 	else
-		ft_putchar(nb + '0');
+	{
+		while (i < power)
+		{
+			s = nb * s;
+			i++;
+		}
+	}
+	return (s);
 }

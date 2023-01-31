@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 20:20:04 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/23 14:51:00 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/30 00:29:19 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/30 00:29:23 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_recursive_factorial(int nb)
 {
-	int		i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (nb == 0)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] = str[i] + 'a' - 'A';
-		}
-		i++;
+		return (1);
 	}
-	return (str);
+	else if (nb < 0)
+	{
+		return (0);
+	}
+	else
+	{
+		return (nb * ft_recursive_factorial(nb - 1));
+	}
 }

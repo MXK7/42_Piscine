@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 20:20:04 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/23 14:51:00 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/27 15:36:19 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/27 15:36:22 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_iterative_factorial(int nb)
 {
 	int		i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 1;
+	if (nb < 0)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] = str[i] + 'a' - 'A';
-		}
-		i++;
+		return (0);
 	}
-	return (str);
+	else if (nb == 0)
+	{
+		return (1);
+	}
+	while (nb != 0)
+	{
+		i = nb * i;
+		nb--;
+	}
+	return (i);
 }

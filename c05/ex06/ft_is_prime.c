@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 20:20:04 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/23 14:51:00 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/30 23:57:55 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/30 23:58:00 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_is_prime(int nb)
 {
-	int		i;
+	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (nb <= 1)
+		return (0);
+	i = 2;
+	while (i < nb && i <= 46341)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] = str[i] + 'a' - 'A';
-		}
+		if (nb % i == 0)
+			return (0);
 		i++;
 	}
-	return (str);
+	return (1);
 }

@@ -1,57 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 20:23:49 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/26 21:19:20 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/30 23:57:37 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/30 23:57:44 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *c)
+int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (c[i] != 0)
+	if (nb % 2 == 0)
 	{
-		write(1, &c[i], 1);
-		i++;
+		return (0);
 	}
+	i = 3;
+	while (i <= nb / i)
+	{
+		if (nb % i == 0)
+		{
+			return (0);
+		}
+		i += 2;
+	}
+	return (1);
 }
 
-void	ft_putnbr(int nb)
+int	ft_find_next_prime(int nb)
 {
-	int	mod;
-	int	div;
-
-	if (nb == -2147483648)
+	if (nb <= 2)
 	{
-		ft_putstr("-2147483648");
-		return ;
+		return (2);
 	}
-	if (nb < 0)
+	while (!ft_is_prime(nb))
 	{
-		ft_putchar('-');
-		nb = -nb;
+		nb++;
 	}
-	if (nb > 9)
-	{
-		mod = nb % 10;
-		div = nb / 10;
-		ft_putnbr(div);
-	}
-	if (nb > 9)
-		ft_putchar(mod + '0');
-	else
-		ft_putchar(nb + '0');
+	return (nb);
 }

@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 20:20:04 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/23 14:51:00 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/30 00:54:01 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/01/30 00:54:03 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strlowcase(char *str)
+int	ft_fibonacci(int index)
 {
-	int		i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (index < 0)
 	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] = str[i] + 'a' - 'A';
-		}
-		i++;
+		return (-1);
 	}
-	return (str);
+	else if (index <= 1)
+	{
+		return (index);
+	}
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }

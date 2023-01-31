@@ -36,10 +36,3 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	dest[destlen + i] = 0;
 	return (dest);
 }
-
-int main()
-{
-	char dest [] = "";
-	char dest [] = "";
-	printf(ft_strncat())
-}
