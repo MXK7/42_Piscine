@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aderouin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 14:49:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/22 14:56:19 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/23 17:18:39 by aderouin          #+#    #+#             */
+/*   Updated: 2023/01/26 13:15:39 by aderouin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stdio.h>
+
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
+	int	i;	
 
 	i = 0;
-	while (str[i])
+	while (s1[i] && s1[i] == s2[i])
 		i++;
-	return (i);
+	return (s1[i] - s2[i]);
 }

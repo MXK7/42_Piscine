@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_translate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aderouin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 14:49:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/22 14:56:19 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/02/04 09:45:17 by aderouin          #+#    #+#             */
+/*   Updated: 2023/02/04 10:52:08 by aderouin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include <stdio.h>
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+char	ft_putstr(char *str);
+
+int	ft_translate(int x)
+{
+	if (x == 0)
+		return (ft_putstr("zero\n"));
+	if (x == 42)
+		return (ft_putstr("forty-two\n"));
+	return (ft_putstr("Dict Error\n"));
 }

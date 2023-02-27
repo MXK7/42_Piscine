@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 14:49:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/22 14:56:19 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/02/08 17:27:00 by mpoussie          #+#    #+#             */
+/*   Updated: 2023/02/08 17:27:01 by mpoussie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+
+void	ft_putchar(char c)
 {
-	int	i;
+	write(1, &c, 1);
+}
+
+void	ft_print_comb2(void)
+{
+	char	i;
+	char	j;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	j = 1;
+	while (i < 99)
+	{
+		ft_putchar(i / 10 + '0');
+		ft_putchar(i % 10 + '0');
+		ft_putchar(' ');
+		ft_putchar(j / 10 + '0');
+		ft_putchar(j % 10 + '0');
+		if (i < 98)
+			write(1, ", ", 2);
+		if (++j > 99)
+			j = ++i + 1;
+	}
 }

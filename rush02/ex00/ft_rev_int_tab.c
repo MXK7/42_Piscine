@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpoussie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aderouin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/22 14:49:51 by mpoussie          #+#    #+#             */
-/*   Updated: 2023/01/22 14:56:19 by mpoussie         ###   ########.fr       */
+/*   Created: 2023/01/22 20:11:31 by aderouin          #+#    #+#             */
+/*   Updated: 2023/01/22 20:11:34 by aderouin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+void	ft_swap(int *a, int *b)
+{
+	int	c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+void	ft_rev_int_tab(int *tab, int size)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (size < 2)
+		return ;
+	while (i < --size)
+		ft_swap(&tab[i++], &tab[size]);
 }
